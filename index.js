@@ -12,6 +12,7 @@ const clear = () => {
 // Функция добавления задачи
 const addTask = () => {
   const inputValue = INPUT.value.trim(); // создаём переменную, в которой храним значение из поля ввода
+  
   if (inputValue) {
       let newItem = document.createElement('li');
       // Второй вариант логики удаления элемента
@@ -21,6 +22,8 @@ const addTask = () => {
       itemContainer.className = "item";
       let textTask = document.createElement('p');
       textTask.textContent = inputValue;
+
+
       let deleteButton = document.createElement('button');
       deleteButton.className = "delete";
       deleteButton.innerHTML = `<span class="material-symbols-outlined">delete</span>`;
@@ -34,9 +37,11 @@ const addTask = () => {
       itemContainer.append(deleteButton);
       newItem.append(itemContainer);
       LIST.append(newItem);
+      
+      INPUT.value = "";
   } else {
       alert('Введите задачу!');
-  }
+  }  
 };
 
 // Подключаем к кнопкам прослушивание событий с привязкой к функциям
